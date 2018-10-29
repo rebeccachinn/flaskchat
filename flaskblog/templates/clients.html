@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="content-section">
+	  <div class="media">
+	      <h2 class="account-heading">Clients</h2>
+	  </div>
+	  <div>
+	  	{% for client in clients %}
+	  	<figure style="display: inline-block;">
+          <a class="mr-2" href="{{ url_for('clients.client_progress', username=client.username )}}">
+          	<img class="account-img rounded" src="{{ url_for('static', filename='profile_pics/' + client.image_file) }}">
+          	<figcaption> {{ client.username }}</figcaption>
+          </a>	
+         </figure>	 
+		{% endfor %}
+	  </div>
+	</div>
+{% endblock content %}
